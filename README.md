@@ -28,16 +28,33 @@
 
 ## Program Design *(Backend Specialist)*
 * Non-Standard libraries
-    * << You should have a list of any additional libraries or modules used (pygame, request) beyond non-standard python. >>
-    * For each additional module you should include
-        * url for the module documentation
-        * a short description of the module
+	-yahoo-finance
+		-link: https://pypi.org/project/yahoo-finance/
+		-description: This module provides several methods that can be used to pull ive stock data from Yahoo finance. The main method that will be used in this application is the 'get_live_price(ticker)' method which returns the current price of a given stock based on the string parameter provided. 
+	-pygame
+		-link: https://pypi.orh/project/pygame/
+		-description: This module provides the methods necessary for controlling this application's GUI.
+   
 * Class Interface Design
     * << A simple drawing that shows the class relationships in your code (see below for an example). >>
         * ![class diagram](assets/class_diagram.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
+
 * Classes
-    * << You should have a list of each of your classes with a description. >>
+    -StockPosition - This class is meant to represent an individual stock position. 
+		-Instance Variables: It's first instance variable is 'ticker', which is a string variable that stores the ticker of the stock position. Next, the variable 'numShares' is a float that stores the number of shares of that specific stock that are owned by the user. Third, the float variable 'costBasis' keeps track of the total amount of cash spent to buy the shares for this position. Lastly, the string variable 'startDate' keeps track of the date when this position was initiated.
+		-Methods: calcStanding() returns the current gain/loss of a current stockPosition
+
+     -Portfolio - This class is meant to represent a portfolio of stock positions.
+		-Instance Variables: 
+			-stockPositions[stockPosition] - a list composed stockPosition objects that correspond to those owned by the user.
+			-cashBal- a float that keeps track of the user's cash balance
+		-Methods:
+			-buyShares(ticker, numShares) - Adds shares of a given stock to portfolio and subtracts cost from cashBal
+			-sellShares(ticker, numShares) - Removes shares of a given stock and adds proceeds to cashBal
+			-getValue(): Returns the total current value of the user's stock positions and cashBal
+			-depositCash(amount): Adds given amount to cashBal
+			-withdrawCash(amount): Subtracts given amount from cashBal
 
 ## Project Structure *(Software Lead)*
 
