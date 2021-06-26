@@ -22,7 +22,7 @@ class Portfolio():
 			if StockPositions[index].numSharesSold == 0:
 				StockPositions.remove(StockPositions[index])
 				
-	def getValue():
+	def calcValue():
 		value = self.cash
 		for stock in self.StockPositions:
 			value += (get_live_price(stock.ticker) * stock.numShares)		
@@ -57,6 +57,25 @@ class Portfolio():
 			if self.StockPositions[x].ticker == ticker:
 				index = x 
 		return index
+		
+	def calcPortGL(self):
+		GL = 0
+		for x in self.StockPositions:
+			GL += x.calcGL()
+		return GL
+	
+	def calcPortCost(self):
+		portCost = 0
+		for x in StockPositions:
+			portCost += x.cost
+		return portCost
+		
+	
+	def calcPortPercentGL(self):
+		GL = self.calcPortPercentGL()
+		cost = self.calcPortCost()
+		return (GL/cost) * 100
+		
 			
 	
 			
