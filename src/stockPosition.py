@@ -20,10 +20,10 @@ class StockPosition():
 		self.numShares += numSharesAdd
 		self.cost += (numSharesAdd * get_live_price(ticker))
 
-##calcGL: returns the current gain or loss of the StockPosition object by subtracting its cost from its current value(live price * number of shares)		
+##calcGL: returns the current gain or loss of the StockPosition object by subtracting its cost from its current value(live price * number of shares)
 	def calcGL(self):
 		standing = (get_live_price(self.ticker) * self.numShares) - self.cost
 		return standing
-##calcPercentGL: returns the current gain or loss as a percent of the StockPosition object's cost.		
+##calcPercentGL: returns the current gain or loss as a percent of the StockPosition object's cost.
 	def calcPercentGL(self):
 		return (((calcStanding() - self.cost)/self.cost) * 100)

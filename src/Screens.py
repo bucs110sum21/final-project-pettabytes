@@ -20,9 +20,9 @@ def mainMenu():
 
         screen.fill((255,255,255))
         drawText('Main Menu', font, (0,0,0), screen, 20, 20)
-        
+
         mx, my = pygame.mouse.get_pos()
-        
+
         but_1 = pygame.Rect(50, 100, 200, 50)
         but_2 = pygame.Rect(50, 200, 200, 50)
 
@@ -63,15 +63,8 @@ def options():
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     running = False
-        
+
         pygame.display.update()
         mainClock.tick(60)
 
-
-
-
-
-
-
-
-
+mainMenu()
