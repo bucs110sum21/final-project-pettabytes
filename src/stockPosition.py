@@ -17,7 +17,7 @@ class StockPosition():
 ##called when the user buys additional shares of a stock that they already own shares of.
 	def addToPos(self, numSharesAdd):
 		self.numShares += numSharesAdd
-		self.cost += (numSharesAdd * get_live_price(ticker))
+		self.cost += (numSharesAdd * get_live_price(self.ticker))
 
 ##calcGL: returns the current gain or loss of the StockPosition object by subtracting its cost from its current value(live price * number of shares)
 	def calcGL(self):
