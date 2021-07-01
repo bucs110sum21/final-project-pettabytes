@@ -1,5 +1,5 @@
 import yahoo_fin.stock_info as si
-from src import Portfolio, stockPosition
+from src import stockPosition
 
 class Portfolio():
 

@@ -1,7 +1,7 @@
 import pygame
 import sys
 import yahoo_fin.stock_info as si
-from src import Portfolio, stockPosition, button
+from src import portfolio, stockPosition, button
 
 class Controller:
     def __init__(self, width = 640, height = 480):
