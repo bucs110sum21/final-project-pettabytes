@@ -31,7 +31,10 @@ class Controller:
                         if self.tradeButt.rect.collidepoint(event.pos):
                             ticker = input('Ticker symbol:')
                             shares = int(input('Buy how many:'))
-                            self.account.buyShares(ticker,shares)
+                            try:
+                                self.account.buyShares(ticker,shares)
+                            except (KeyError, AssertionError):
+                                print('Not a valid ticker!')
 
             self.background.fill((250,250,250))
             self.screen.blit(self.background, (0, 0))
