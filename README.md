@@ -2,20 +2,20 @@
 # CS110 Project Proposal
 # << Project Title >>
 ## CS 110 Final Project
-### << Semester, Year >>
+### Summer, 2021
 ### [Assignment Description](https://docs.google.com/document/d/1H4R6yLL7som1lglyXWZ04RvTp_RvRFCCBn6sqv-82ps/edit#)
 
-<< [https://github.com/<repo>](#) >>
+https://github.com/bucs110sum21/final-project-pettabytes
 
 << [link to demo presentation slides](#) >>
 
-### Team: << team name >>
-#### << Team Members >>
+### Team: Pettabytes
+#### Ryan Levine, Dennis Shin, Eyal Hakimi
 
 ***
 
 ## Project Description *(Software Lead)*
-<< Give an overview of your project >>
+Our goal is to create a simulation of the stock market in which the user has money that they can use to buy stocks using up to date stock prices.
 
 ***    
 
@@ -72,17 +72,17 @@ The Project is broken down into the following file structure:
 ## Tasks and Responsibilities *(Software Lead)*
 * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
 
-### Software Lead - << name >>
+### Software Lead - Dennis Shin
 
-<< Worked as integration specialist by... >>
+Double checked the code to make sure that everything was working as intended
 
-### Front End Specialist - << name >>
+### Front End Specialist - Eyal Hakimi
 
-<< Front-end lead conducted significant research on... >>
+Worked on the GUI and different "screens of our application"
 
-### Back End Specialist - << name >>
+### Back End Specialist - Ryan Levine
 
-<< The back end specialist... >>
+Took care of adding in yahoo_finance module and functions using yahoo_finance
 
 ## Testing *(Software Lead)*
 * << Describe your testing strategy for your project. >>
