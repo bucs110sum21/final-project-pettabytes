@@ -12,7 +12,7 @@ class Controller:
         self.background = pygame.Surface(self.screen.get_size()).convert()
         pygame.font.init()
 
-        self.account = Portfolio.Portfolio(100000)
+        self.account = portfolio.Portfolio(100000)
 
         self.tradeButt = button.Button(420,320,'assets/tradeBut.png')
 
@@ -20,9 +20,11 @@ class Controller:
         self.state = 'RUN'
 
     def mainLoop(self):
+        clock = pygame.time.Clock()
         while self.state == 'RUN':
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if event.button == 1:
@@ -37,3 +39,4 @@ class Controller:
             self.allSprites.update()
             self.allSprites.draw(self.screen)
             pygame.display.flip()
+            clock.tick(60)
