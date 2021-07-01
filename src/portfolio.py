@@ -1,3 +1,4 @@
+import pygame
 import yahoo_fin.stock_info as si
 from src import stockPosition
 
@@ -7,6 +8,7 @@ class Portfolio():
 	##A portfolio object also contains a double value 'cash' which represents the user's cash balance.
 	def __init__(self, cash):
 		self.stockPositions = []
+		self.holdings = pygame.sprite.Group()
 		self.cash = cash
 
 ##buyShares: simulates the action of buying a certain number of shares of a given company.
@@ -19,7 +21,8 @@ class Portfolio():
 			if self.findStockIndex(ticker) != -1:
 				self.stockPositions[self.findStockIndex(ticker)].addToPos(numShares)
 			else:
-				self.stockPositions.append(stockPosition.StockPosition(ticker, numShares))
+				self.stockPositions.append(stockPosition.StockPosition(ticker, numShares, 200, 'assets/holdingBox.png'))
+			self.holdings.add(self.stockPositions[-1])
 			print('Purchase successful',self.stockPositions)
 
 ##sellShares: simulates the action of selling a certain number of shares of given company.

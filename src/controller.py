@@ -12,11 +12,14 @@ class Controller:
         self.background = pygame.Surface(self.screen.get_size()).convert()
         pygame.font.init()
 
-        self.account = Portfolio.Portfolio(100000)
+        self.account = portfolio.Portfolio(0.00)
 
-        self.tradeButt = button.Button(420,320,'assets/tradeBut.png')
+        self.tradeButt = button.Button(425, 315, 'assets/tradeBut.png')
+        self.deposButt = button.Button(425, 225, 'assets/depositBut.png')
+        self.withdButt = button.Button(530, 225, 'assets/withdrawBut.png')
+        self.buttons = pygame.sprite.Group(self.tradeButt, self.deposButt, self.withdButt)
 
-        self.allSprites = pygame.sprite.Group((self.tradeButt,))
+        self.allSprites = pygame.sprite.Group(tuple(self.buttons))
         self.state = 'RUN'
 
     def mainLoop(self):
@@ -30,10 +33,28 @@ class Controller:
                             ticker = input('Ticker symbol:')
                             shares = int(input('Buy how many:'))
                             self.account.buyShares(ticker,shares)
+                        if self.deposButt.rect.collidepoint(event.pos):
+                            amount = float(input('Deposit $'))
+                            self.account.cash += amount
+                        if self.withdButt.rect.collidepoint(event.pos):
+                            amount = float(input('Withdraw $'))
+                            if amount <= self.account.cash:
+                                self.account.cash -= amount
+                            else:
+                                print('Not enough cash to withdraw')
 
-            self.background.fill((250,250,250))
-            self.screen.blit(self.background, (0, 0))
+            self.drawScreen()
 
-            self.allSprites.update()
-            self.allSprites.draw(self.screen)
-            pygame.display.flip()
+    def drawScreen(self):
+        self.background.fill((10,50,20))
+        self.screen.blit(self.background, (0, 0))
+
+        self.allSprites.update()
+        self.allSprites.draw(self.screen)
+        self.account.holdings.draw(self.screen)
+
+        font = pygame.font.SysFont(None, 72)
+        balance = font.render('Balance: $'+ stockPosition.StockPosition.numCut(stockPosition.StockPosition, self.account.calcValue(), 8), True, (250,250,250))
+        self.screen.blit(balance, (20,40))
+
+        pygame.display.flip()
