@@ -32,6 +32,8 @@ class Portfolio():
 	def sellShares(self, ticker, numSharesSold):
 		index = self.findStockIndex(ticker)
 		if verifySale(ticker, numShares):
+			avgCost = StockPositions[index].cost / StockPositions[index].numShares
+			StockPositions[index].cost -= avgCost * numSharesSold
 			StockPositions[index].numShares -= numSharesSold
 			self.cash += numSharesSold * get_live_price(ticker)
 			if StockPositions[index].numSharesSold == 0:

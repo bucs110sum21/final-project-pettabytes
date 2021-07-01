@@ -23,16 +23,21 @@ class Controller:
         self.state = 'RUN'
 
     def mainLoop(self):
+        clock = pygame.time.Clock()
         while self.state == 'RUN':
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if event.button == 1:
                         if self.tradeButt.rect.collidepoint(event.pos):
                             ticker = input('Ticker symbol:')
                             shares = int(input('Buy how many:'))
-                            self.account.buyShares(ticker,shares)
+                            try:
+                                self.account.buyShares(ticker,shares)
+                            except (KeyError, AssertionError):
+                                print('Not a valid ticker!')
                         if self.deposButt.rect.collidepoint(event.pos):
                             amount = float(input('Deposit $'))
                             self.account.cash += amount
