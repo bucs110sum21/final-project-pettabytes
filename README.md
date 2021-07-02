@@ -127,7 +127,3 @@ Took care of adding in yahoo_finance module and functions using yahoo_finance. R
 |  20  |  enter 50 | GUI updates with nflx shares and price is abbreviated to fit |      Correct          |
 |  21  |  click deposit button | prompt asks for $ amount to be deposited |      Correct          |
 |  22  |  enter 1000000000 (100 million) | GUI updates and instead of numbers going off screen, they are abbreviated to 100M |      Correct          |
-
-
-=======
->>>>>>> 35e6a37419eecd701072b5b8f0fe955601269eb6
