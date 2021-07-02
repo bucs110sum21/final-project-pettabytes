@@ -4,9 +4,9 @@
 ### Summer, 2021
 ### [Assignment Description](https://docs.google.com/document/d/1H4R6yLL7som1lglyXWZ04RvTp_RvRFCCBn6sqv-82ps/edit#)
 
-https://github.com/bucs110sum21/final-project-pettabytes
+[Project repo](https://github.com/bucs110sum21/final-project-pettabytes)
 
-<< [link to demo presentation slides](https://docs.google.com/presentation/d/12FjyYHfmlNT5dS9UIUZ8JjVOuhgNOM9Y_ivXMrfrtGQ/) >>
+[Link to demo presentation slides](https://docs.google.com/presentation/d/12FjyYHfmlNT5dS9UIUZ8JjVOuhgNOM9Y_ivXMrfrtGQ/)
 
 ### Team: Pettabytes
 #### Ryan Levine, Dennis Shin, Eyal Hakimi
@@ -21,9 +21,8 @@ Our goal is to create a simulation of the stock market in which the user has mon
 ## User Interface Design *(Front End Specialist)*
 
 =======
-* [Main screen](etc/project_screenshot.png)
-* The program uses one screen with buttons to buy or sell stocks and to deposit or withdraw cash. The text input for each of these processes is done in the command line. Holdings appear in a column of boxes that can scroll up or down with corresponding arrows. 
->>>>>>> ac73db419a28a0ccd4054b152561aed825823e1a
+* ![Main screen](etc/project_screenshot.png)
+* The program uses one screen with buttons to buy or sell stocks and to deposit or withdraw cash. The text input for each of these processes is done in the command line. Holdings appear in a column of boxes that can scroll up or down with corresponding arrows.
 
 ***        
 
@@ -37,25 +36,25 @@ Our goal is to create a simulation of the stock market in which the user has mon
 		-description: This module provides the methods necessary for controlling this application's GUI.
 
 * Class Interface Design
-=======
     * ![class diagram](etc/class_diagram.jpg)
->>>>>>> ac73db419a28a0ccd4054b152561aed825823e1a
 
 * Classes
-    -StockPosition - This class is meant to represent an individual stock position.
-		-Instance Variables: It's first instance variable is 'ticker', which is a string variable that stores the ticker of the stock position. Next, the variable 'numShares' is a float that stores the number of shares of that specific stock that are owned by the user. Third, the float variable 'costBasis' keeps track of the total amount of cash spent to buy the shares for this position. Lastly, the string variable 'startDate' keeps track of the date when this position was initiated.
-		-Methods: calcStanding() returns the current gain/loss of a current stockPosition
+    * StockPosition - This class is meant to represent an individual stock position.
+		  * Instance Variables: It's first instance variable is 'ticker', which is a string variable that stores the ticker of the stock position. Next, the variable 'numShares' is a float that stores the number of shares of that specific stock that are owned by the user. Third, the float variable 'costBasis' keeps track of the total amount of cash spent to buy the shares for this position. Lastly, the string variable 'startDate' keeps track of the date when this position was initiated.
+		  * Methods: calcStanding() returns the current gain/loss of a current stockPosition
 
-     -Portfolio - This class is meant to represent a portfolio of stock positions.
-		-Instance Variables:
-			-stockPositions[stockPosition] - a list composed stockPosition objects that correspond to those owned by the user.
-			-cashBal- a float that keeps track of the user's cash balance
-		-Methods:
-			-buyShares(ticker, numShares) - Adds shares of a given stock to portfolio and subtracts cost from cashBal
-			-sellShares(ticker, numShares) - Removes shares of a given stock and adds proceeds to cashBal
-			-getValue(): Returns the total current value of the user's stock positions and cashBal
-			-depositCash(amount): Adds given amount to cashBal
-			-withdrawCash(amount): Subtracts given amount from cashBal
+    * Portfolio - This class is meant to represent a portfolio of stock positions.
+		  * Instance Variables:
+			   * stockPositions[stockPosition] - a list composed stockPosition objects that correspond to those owned by the user.
+			   * cashBal- a float that keeps track of the user's cash balance
+		     * Methods:
+			      * buyShares(ticker, numShares) - Adds shares of a given stock to portfolio and subtracts cost from cashBal
+			      * sellShares(ticker, numShares) - Removes shares of a given stock and adds proceeds to cashBal
+			      * getValue(): Returns the total current value of the user's stock positions and cashBal
+			      * depositCash(amount): Adds given amount to cashBal
+			      * withdrawCash(amount): Subtracts given amount from cashBal
+
+***
 
 ## Project Structure *(Software Lead)*
 
@@ -77,6 +76,7 @@ The Project is broken down into the following file structure:
     * withdrawBut.png
 * etc
     * class_diagram.jpg
+    * demo.mp4
     * foldercontents.txt
     * project_screenshot.png
     * stockClassDiagram.png
@@ -119,6 +119,7 @@ Took care of adding in yahoo_finance module and functions using yahoo_finance. R
 |  12  | enter 5000  | GUI elements for balance and cash update and add 5000 to total |       Correct          |
 |  13  | click withdraw button  | prompt asks how much user wishes to withdraw |      Correct          |
 |  14  | enter 10000  | GUI elements for balance and cash update and subtract 10000 to total |       Correct          |
+<<<<<<< HEAD
 |  15  |  click buy button | prompt asks for ticker |      Correct          |
 |  16  |  enter nflx | prompt asks for shares |      Correct          |
 |  17  |  enter 10000 | Error messages stating not enough money |      Correct          |
@@ -129,3 +130,5 @@ Took care of adding in yahoo_finance module and functions using yahoo_finance. R
 |  22  |  enter 1000000000 (1 million) | GUI updates and instead of numbers going off screen, they are abbreviated to 100M |      Correct          |
 
 
+=======
+>>>>>>> 35e6a37419eecd701072b5b8f0fe955601269eb6
