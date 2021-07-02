@@ -41,9 +41,7 @@ Our goal is to create a simulation of the stock market in which the user has mon
 * Class Interface Design
 <<<<<<< HEAD
     * << A simple drawing that shows the class relationships in your code (see below for an example). >>
-        * ![class diagram](assets/StockClassDiagram.jpg)
-=======
-    * ![class diagram](etc/class_diagram.jpg)
+        * ![class diagram](etc/StockClassDiagram.jpg)
 >>>>>>> ac73db419a28a0ccd4054b152561aed825823e1a
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 
