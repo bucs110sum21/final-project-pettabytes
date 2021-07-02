@@ -1,6 +1,5 @@
-:warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 # CS110 Project Proposal
-# << Project Title >>
+# Day trading simulator
 ## CS 110 Final Project
 ### Summer, 2021
 ### [Assignment Description](https://docs.google.com/document/d/1H4R6yLL7som1lglyXWZ04RvTp_RvRFCCBn6sqv-82ps/edit#)
@@ -20,9 +19,8 @@ Our goal is to create a simulation of the stock market in which the user has mon
 ***    
 
 ## User Interface Design *(Front End Specialist)*
-* << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. >>
-    * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
-* << You should also have a screenshot of each screen for your final GUI >>
+* [Main screen](etc/project_screenshot.png)
+* The program uses one screen with buttons to buy or sell stocks and to deposit or withdraw cash. The text input for each of these processes is done in the command line. Holdings appear in a column of boxes that can scroll up or down with corresponding arrows. 
 
 ***        
 
@@ -30,23 +28,22 @@ Our goal is to create a simulation of the stock market in which the user has mon
 * Non-Standard libraries
 	-yahoo-finance
 		-link: https://pypi.org/project/yahoo-finance/
-		-description: This module provides several methods that can be used to pull ive stock data from Yahoo finance. The main method that will be used in this application is the 'get_live_price(ticker)' method which returns the current price of a given stock based on the string parameter provided. 
+		-description: This module provides several methods that can be used to pull ive stock data from Yahoo finance. The main method that will be used in this application is the 'get_live_price(ticker)' method which returns the current price of a given stock based on the string parameter provided.
 	-pygame
 		-link: https://pypi.orh/project/pygame/
 		-description: This module provides the methods necessary for controlling this application's GUI.
-   
+
 * Class Interface Design
-    * << A simple drawing that shows the class relationships in your code (see below for an example). >>
-        * ![class diagram](assets/class_diagram.jpg)
+    * ![class diagram](etc/class_diagram.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 
 * Classes
-    -StockPosition - This class is meant to represent an individual stock position. 
+    -StockPosition - This class is meant to represent an individual stock position.
 		-Instance Variables: It's first instance variable is 'ticker', which is a string variable that stores the ticker of the stock position. Next, the variable 'numShares' is a float that stores the number of shares of that specific stock that are owned by the user. Third, the float variable 'costBasis' keeps track of the total amount of cash spent to buy the shares for this position. Lastly, the string variable 'startDate' keeps track of the date when this position was initiated.
 		-Methods: calcStanding() returns the current gain/loss of a current stockPosition
 
      -Portfolio - This class is meant to represent a portfolio of stock positions.
-		-Instance Variables: 
+		-Instance Variables:
 			-stockPositions[stockPosition] - a list composed stockPosition objects that correspond to those owned by the user.
 			-cashBal- a float that keeps track of the user's cash balance
 		-Methods:

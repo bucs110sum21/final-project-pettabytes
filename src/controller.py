@@ -37,7 +37,7 @@ class Controller:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                         if self.buyButt.rect.collidepoint(event.pos):
                             ticker = input('\n~~~~~~~~~~ BUY STOCK ~~~~~~~~~~\nTicker symbol:')
-                            shares = int(input('Buy how many:'))
+                            shares = float(input('Buy how many:'))
                             try:
                                 self.account.buyShares(ticker,shares)
                                 if self.account.verifyPurchase(ticker,shares) == True:
