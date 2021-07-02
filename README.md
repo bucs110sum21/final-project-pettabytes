@@ -22,7 +22,7 @@ Our goal is to create a simulation of the stock market in which the user has mon
 ## User Interface Design *(Front End Specialist)*
 * << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. >>
     * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
-* << You should also have a screenshot of each screen for your final GUI >>
+        * ![class diagram](assets/GUI_draft.png)
 
 ***        
 
@@ -37,7 +37,7 @@ Our goal is to create a simulation of the stock market in which the user has mon
    
 * Class Interface Design
     * << A simple drawing that shows the class relationships in your code (see below for an example). >>
-        * ![class diagram](assets/class_diagram.jpg)
+        * ![class diagram](assets/StockClassDiagram.jpg)
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 
 * Classes
@@ -82,7 +82,7 @@ Worked on the GUI and different "screens of our application"
 
 ### Back End Specialist - Ryan Levine
 
-Took care of adding in yahoo_finance module and functions using yahoo_finance
+Took care of adding in yahoo_finance module and functions using yahoo_finance. Responsible for all classes in portfolio.py and stockPosition.py
 
 ## Testing *(Software Lead)*
 * << Describe your testing strategy for your project. >>
