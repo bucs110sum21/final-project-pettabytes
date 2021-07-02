@@ -9,6 +9,7 @@ class Controller:
         self.width = width
         self.height = height
         self.screen = pygame.display.set_mode((self.width, self.height))
+        pygame.display.set_caption('Day Trading Simulation')
         self.background = pygame.Surface(self.screen.get_size()).convert()
         pygame.font.init()
 
@@ -23,7 +24,6 @@ class Controller:
         self.state = 'RUN'
 
     def mainLoop(self):
-        clock = pygame.time.Clock()
         while self.state == 'RUN':
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -36,6 +36,10 @@ class Controller:
                             shares = int(input('Buy how many:'))
                             try:
                                 self.account.buyShares(ticker,shares)
+                                if self.account.verifyPurchase(ticker,shares) == True:
+                                    continue
+                                else:
+                                    print('Not enough money!')
                             except (KeyError, AssertionError):
                                 print('Not a valid ticker!')
                         if self.deposButt.rect.collidepoint(event.pos):
@@ -51,6 +55,7 @@ class Controller:
             self.drawScreen()
 
     def drawScreen(self):
+        clock = pygame.time.Clock()
         self.background.fill((10,50,20))
         self.screen.blit(self.background, (0, 0))
 
@@ -63,3 +68,4 @@ class Controller:
         self.screen.blit(balance, (20,40))
 
         pygame.display.flip()
+        clock.tick(30)
