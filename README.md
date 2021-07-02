@@ -111,19 +111,19 @@ Took care of adding in yahoo_finance module and functions using yahoo_finance. R
 
 | Step                  | Procedure     | Expected Results  | Actual Results |
 | ----------------------|:-------------:| -----------------:| -------------- |
-|  1  | Run Day Trade Program  | GUI window appears with buy/sell buttons  |          |
-|  2  | click buy button  | prompt shows in terminal for ticker |                 |
-|  3 | enter aapl (apple stocks)  | prompt shows in terminal for how many shares you wish to buy |                 |
-|  4  | enter 6  | aapl stock shows on GUI and shows how much money you have invensted and how many shares you have |                 |
-|  5  | click buy button  | prompt shows in terminal for ticker |                 |
-|  6  | enter msft (microsoft stocks)  | prompt shows in terminal for how many shares you wish to buy |                 |
-|  7  | enter 4  | msft stock shows on GUI and shows how much money you have invensted and how many shares you have |                 |
-|  8  | click sell button | prompt shows asking for ticker |                 |
-|  9  | enter aapl  | prompt shows asking for how many shares user wishes to sell |                 |
-|  10 | enter 4  | aapl GUI element updates to 2 shares from 6 |                 |
-|  11  | click deposit button  | prompt asks how much user wishes to deposit |                 |
-|  12  | enter 5000  | GUI elements for balance and cash update and add 5000 to total |                 |
-|  13  | click withdraw button  | prompt asks how much user wishes to withdraw |                 |
-|  14  | enter 10000  | GUI elements for balance and cash update and subtract 10000 to total |                 |
+|  1  | Run Day Trade Program  | GUI window appears with buy/sell buttons  |     Correct     |
+|  2  | click buy button  | prompt shows in terminal for ticker |        Correct         |
+|  3 | enter aapl (apple stocks)  | prompt shows in terminal for how many shares you wish to buy |      Correct           |
+|  4  | enter 6  | aapl stock shows on GUI and shows how much money you have invensted and how many shares you have |       Correct          |
+|  5  | click buy button  | prompt shows in terminal for ticker |       Correct          |
+|  6  | enter msft (microsoft stocks)  | prompt shows in terminal for how many shares you wish to buy |      Correct           |
+|  7  | enter 4  | msft stock shows on GUI and shows how much money you have invensted and how many shares you have |        Correct         |
+|  8  | click sell button | prompt shows asking for ticker |       Correct          |
+|  9  | enter aapl  | prompt shows asking for how many shares user wishes to sell |       Correct          |
+|  10 | enter 4  | aapl GUI element updates to 2 shares from 6 |       Correct          |
+|  11  | click deposit button  | prompt asks how much user wishes to deposit |       Correct          |
+|  12  | enter 5000  | GUI elements for balance and cash update and add 5000 to total |       Correct          |
+|  13  | click withdraw button  | prompt asks how much user wishes to withdraw |      Correct          |
+|  14  | enter 10000  | GUI elements for balance and cash update and subtract 10000 to total |       Correct          |
 
 
