@@ -19,9 +19,7 @@ Our goal is to create a simulation of the stock market in which the user has mon
 ***    
 
 ## User Interface Design *(Front End Specialist)*
-<<<<<<< HEAD
-* << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. >>
-    * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
+
 =======
 * [Main screen](etc/project_screenshot.png)
 * The program uses one screen with buttons to buy or sell stocks and to deposit or withdraw cash. The text input for each of these processes is done in the command line. Holdings appear in a column of boxes that can scroll up or down with corresponding arrows. 
@@ -39,12 +37,9 @@ Our goal is to create a simulation of the stock market in which the user has mon
 		-description: This module provides the methods necessary for controlling this application's GUI.
 
 * Class Interface Design
-<<<<<<< HEAD
-    * << A simple drawing that shows the class relationships in your code (see below for an example). >>
 =======
     * ![class diagram](etc/class_diagram.jpg)
 >>>>>>> ac73db419a28a0ccd4054b152561aed825823e1a
-    * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 
 * Classes
     -StockPosition - This class is meant to represent an individual stock position.
@@ -110,7 +105,7 @@ Worked on the GUI and different "screens of our application"
 
 ### Back End Specialist - Ryan Levine
 
-Took care of adding in yahoo_finance module and functions using yahoo_finance. Responsible for all classes in portfolio.py and stockPosition.py
+Took care of adding in yahoo_finance module and functions using yahoo_finance. Responsible for classes portfolio and stockPosition
 
 ## Testing *(Software Lead)*
 * User will buy and sell stocks and then deposit and withdraw money from account
