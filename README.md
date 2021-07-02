@@ -6,7 +6,7 @@
 
 https://github.com/bucs110sum21/final-project-pettabytes
 
-<< [link to demo presentation slides](#) >>
+<< [link to demo presentation slides](https://docs.google.com/presentation/d/12FjyYHfmlNT5dS9UIUZ8JjVOuhgNOM9Y_ivXMrfrtGQ/) >>
 
 ### Team: Pettabytes
 #### Ryan Levine, Dennis Shin, Eyal Hakimi
