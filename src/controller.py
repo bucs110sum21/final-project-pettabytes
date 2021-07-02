@@ -9,6 +9,7 @@ class Controller:
         self.width = width
         self.height = height
         self.screen = pygame.display.set_mode((self.width, self.height))
+        pygame.display.set_caption('Day Trading Simulation')
         self.background = pygame.Surface(self.screen.get_size()).convert()
         pygame.font.init()
 
@@ -35,14 +36,18 @@ class Controller:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                         if self.buyButt.rect.collidepoint(event.pos):
-                            ticker = input('Ticker symbol:')
+                            ticker = input('\n~~~~~~~~~~ BUY STOCK ~~~~~~~~~~\nTicker symbol:')
                             shares = int(input('Buy how many:'))
                             try:
-                                self.account.buyShares(ticker, shares)
+                                self.account.buyShares(ticker,shares)
+                                if self.account.verifyPurchase(ticker,shares) == True:
+                                    continue
+                                else:
+                                    print('Not enough money!')
                             except (KeyError, AssertionError):
                                 print('Not a valid ticker!')
                         if self.sellButt.rect.collidepoint(event.pos):
-                            ticker = input('Ticker symbol:')
+                            ticker = input('\n~~~~~~~~~~ SELL STOCK ~~~~~~~~~~\nTicker symbol:')
                             if self.account.findStockIndex(ticker) == -1:
                                 print("You don't own this stock")
                             else:
@@ -50,10 +55,10 @@ class Controller:
                                 self.account.sellShares(ticker, shares)
 
                         elif self.deposButt.rect.collidepoint(event.pos):
-                            amount = float(input('Deposit $'))
+                            amount = float(input('\n~~~~~~~~~~ ADD MONEY ~~~~~~~~~~\nDeposit $'))
                             self.account.cash += amount
                         elif self.withdButt.rect.collidepoint(event.pos):
-                            amount = float(input('Withdraw $'))
+                            amount = float(input('\n~~~~~~~~~~ TAKE MONEY ~~~~~~~~~~\nWithdraw $'))
                             if amount <= self.account.cash:
                                 self.account.cash -= amount
                             else:
@@ -67,7 +72,7 @@ class Controller:
                             if self.account.shift >= 20:
                                 self.account.shift -= 20
                                 print(self.account.shift)
-
+            clock.tick(40)
             self.drawScreen()
 
     def drawScreen(self):
