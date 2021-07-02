@@ -119,5 +119,13 @@ Took care of adding in yahoo_finance module and functions using yahoo_finance. R
 |  12  | enter 5000  | GUI elements for balance and cash update and add 5000 to total |       Correct          |
 |  13  | click withdraw button  | prompt asks how much user wishes to withdraw |      Correct          |
 |  14  | enter 10000  | GUI elements for balance and cash update and subtract 10000 to total |       Correct          |
+|  15  |  click buy button | prompt asks for ticker |      Correct          |
+|  16  |  enter nflx | prompt asks for shares |      Correct          |
+|  17  |  enter 10000 | Error messages stating not enough money |      Correct          |
+|  18  |  click buy button | prompt asks for ticker |      Correct          |
+|  19  |  enter nflx | prompt asks for shares |      Correct          |
+|  20  |  enter 50 | GUI updates with nflx shares and price is abbreviated to fit |      Correct          |
+|  21  |  click deposit button | prompt asks for $ amount to be deposited |      Correct          |
+|  22  |  enter 1000000000 (1 million) | GUI updates and instead of numbers going off screen, they are abbreviated to 100M |      Correct          |
 
 
