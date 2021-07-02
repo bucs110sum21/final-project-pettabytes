@@ -48,19 +48,28 @@ Our goal is to create a simulation of the stock market in which the user has mon
 
 * Classes
     -StockPosition - This class is meant to represent an individual stock position.
-		-Instance Variables: It's first instance variable is 'ticker', which is a string variable that stores the ticker of the stock position. Next, the variable 'numShares' is a float that stores the number of shares of that specific stock that are owned by the user. Third, the float variable 'costBasis' keeps track of the total amount of cash spent to buy the shares for this position. Lastly, the string variable 'startDate' keeps track of the date when this position was initiated.
+		-Instance Variables: 
+			-ticker: string that stores the ticker of the stock position
+			-numShares: a float that stores the number of shares the user owns of this stock
+			-cost: a float that stores the total amount that the user paid to purchase these sharesIt's first instance variable is 'ticker', which is a string variable that stores the ticker of the stock position. Next, the variable 'numShares' is a float that stores the number of shares of that specific stock that are owned by the user. Third, the float variable 'costBasis' keeps track of the total amount of cash spent to buy the shares for this position. Lastly, the string variable 'startDate' keeps track of the date when this position was initiated.
 		-Methods: calcStanding() returns the current gain/loss of a current stockPosition
 
      -Portfolio - This class is meant to represent a portfolio of stock positions.
 		-Instance Variables:
 			-stockPositions[stockPosition] - a list composed stockPosition objects that correspond to those owned by the user.
-			-cashBal- a float that keeps track of the user's cash balance
+			-cash- a float that keeps track of the user's cash balance
 		-Methods:
 			-buyShares(ticker, numShares) - Adds shares of a given stock to portfolio and subtracts cost from cashBal
 			-sellShares(ticker, numShares) - Removes shares of a given stock and adds proceeds to cashBal
 			-getValue(): Returns the total current value of the user's stock positions and cashBal
-			-depositCash(amount): Adds given amount to cashBal
-			-withdrawCash(amount): Subtracts given amount from cashBal
+			-deposit(amount): Adds given amount to cashBal
+			-withdraw(amount): Subtracts given amount from cashBal
+			-verifySale(ticker, numShares) - verifies that the requested sale can take place. Returns a boolean value.
+			-verifyPurchase(ticker, numShares) - verifies that the requested purchase can take place. Returns a boolean value.
+			-calcGL() - returns the portfolio's current gain/loss
+			-calcGLPercent() - returns the portfolio's current gain/loss as a percent
+			-calcPortCost() - returns the total amount paid by the user for all of the shares in the portfolio
+			-calcValue() - returns the total value of the user's portfolio (stocks + cash)
 
 ## Project Structure *(Software Lead)*
 
