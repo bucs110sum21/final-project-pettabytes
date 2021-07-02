@@ -67,12 +67,25 @@ Our goal is to create a simulation of the stock market in which the user has mon
 
 The Project is broken down into the following file structure:
 * main.py
-* bin
-    * <all of your python files should go here>
+* src
+    * Screens.py
+    * button.py
+    * controller.py
+    * portfolio.py
+    * stockPosition.py
+    * foldercontents.txt
 * assets
-    * <all of your media, i.e. images, font files, etc, should go here)
+    * arrow.png
+    * buyBut.png
+    * depositBut.png
+    * holdingBox.png
+    * sellBut.png
+    * withdrawBut.png
 * etc
-    * <This is a catch all folder for things that are not part of your project, but you want to keep with your project. Your demo video should go here.>
+    * class_diagram.jpg
+    * foldercontents.txt
+    * project_screenshot.png
+    * stockClassDiagram.png
 
 ***
 
@@ -92,8 +105,7 @@ Worked on the GUI and different "screens of our application"
 Took care of adding in yahoo_finance module and functions using yahoo_finance. Responsible for all classes in portfolio.py and stockPosition.py
 
 ## Testing *(Software Lead)*
-* << Describe your testing strategy for your project. >>
-    * << Example >>
+* User will buy and sell stocks and then deposit and withdraw money from account
 
 * Your ATP
 
@@ -114,4 +126,4 @@ Took care of adding in yahoo_finance module and functions using yahoo_finance. R
 |  13  | click withdraw button  | prompt asks how much user wishes to withdraw |                 |
 |  14  | enter 10000  | GUI elements for balance and cash update and subtract 10000 to total |                 |
 
-etc...
+
