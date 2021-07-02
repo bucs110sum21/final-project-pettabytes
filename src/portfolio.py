@@ -1,5 +1,5 @@
 import pygame
-import yahoo_fin.stock_info as si
+from yahoo_fin.stock_info import *
 from src import stockPosition
 
 class Portfolio():
@@ -11,33 +11,39 @@ class Portfolio():
 		self.holdings = pygame.sprite.Group()
 		self.cash = cash
 
+		self.shift = 0
+
 ##buyShares: simulates the action of buying a certain number of shares of a given company.
 ##First it verifies that the purchase can be made by calling the verifyPurchase function with the ticker(letter symbol) of the stock that
 ##that the user wants to purchase. If the purchase is verified then the function either adds a new StockPosition object to the Portfolio object's
 ##list or adds a given number of shares to an existing stock position. It then subtracts the cost of this purchase from the 'cash' variable.
 	def buyShares(self, ticker, numShares):
 		if self.verifyPurchase(ticker, numShares):
-			self.cash -= si.get_live_price(ticker) * numShares
-			if self.findStockIndex(ticker) != -1:
-				self.stockPositions[self.findStockIndex(ticker)].addToPos(numShares)
+			index = self.findStockIndex(ticker)
+			self.cash -= get_live_price(ticker) * numShares
+			if index != -1:
+				self.stockPositions[index].addToPos(numShares)
 			else:
-				self.stockPositions.append(stockPosition.StockPosition(ticker, numShares, 200, 'assets/holdingBox.png'))
-			self.holdings.add(self.stockPositions[-1])
-			print('Purchase successful',self.stockPositions)
+				self.stockPositions.append(stockPosition.StockPosition(ticker, numShares, len(self.stockPositions) -1, 'assets/holdingBox.png'))
+			self.holdings.add(self.stockPositions[index])
+			self.stockPositions[index].refresh()
+		else:
+			print('Not enough cash for purchase')
 
 ##sellShares: simulates the action of selling a certain number of shares of given company.
 ##First if verifies that the sale can take place by calling the verifySale function. If the sale is verified, then the given number of shares
 ##are removed from the corresponding stockPosition in the list. If the user sold all shares, then the stockPosition is removed from the list.
 ##Finally, it adds the proceeds to the cash variable.
-	def sellShares(self, ticker, numSharesSold):
+	def sellShares(self, ticker, numShares):
 		index = self.findStockIndex(ticker)
-		if verifySale(ticker, numShares):
-			avgCost = StockPositions[index].cost / StockPositions[index].numShares
-			StockPositions[index].cost -= avgCost * numSharesSold
-			StockPositions[index].numShares -= numSharesSold
-			self.cash += numSharesSold * get_live_price(ticker)
-			if StockPositions[index].numSharesSold == 0:
-				StockPositions.remove(StockPositions[index])
+		if self.verifySale(ticker, numShares):
+			avgCost = self.stockPositions[index].cost / self.stockPositions[index].numShares
+			self.stockPositions[index].cost -= avgCost * numShares
+			self.stockPositions[index].numShares -= numShares
+			self.cash += numShares * get_live_price(ticker)
+			if self.stockPositions[index].numShares == 0:
+				self.stockPositions.remove(self.stockPositions[index])
+			self.stockPositions[index].refresh()
 
 ##calcValue: returns the total value of the user's "account"
 ##Loops through the Portfolio object's list and gets the current value of each StockPosition and keeps a running total. Then adds this total
@@ -45,7 +51,7 @@ class Portfolio():
 	def calcValue(self):
 		value = self.cash
 		for stock in self.stockPositions:
-			value += (si.get_live_price(stock.ticker) * stock.numShares)
+			value += (get_live_price(stock.ticker) * stock.numShares)
 		return value
 
 ##deposit: Simulates depositing cash into the account.
@@ -63,7 +69,7 @@ class Portfolio():
 ##If the total cost of the transaction is less than or equal to the current cash balance, it returns true.
 ##If not, it returns false.
 	def verifyPurchase(self, ticker, numSharesBought):
-		return self.cash >= (si.get_live_price(ticker) * numSharesBought)
+		return self.cash >= (get_live_price(ticker) * numSharesBought)
 
 ##verifySale: Returns a boolean value that indicates if the sale described can take place.
 ##If the stock entered exists in the portfolio and the number of shares entered is less than the number of shares stored by the StockPosition

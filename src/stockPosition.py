@@ -1,5 +1,7 @@
 import pygame
+import time
 from yahoo_fin.stock_info import *
+from src import controller
 
 class StockPosition(pygame.sprite.Sprite):
 ##YAHOO-FIN module note:
@@ -9,27 +11,35 @@ class StockPosition(pygame.sprite.Sprite):
 ##'ticker' is a str variable that should contain the ticker (ex: Microsoft -> MSFT, Tesla -> TSLA) of the stock being referenced.
 ##'numShares' is a float variable that contains the number of shares of a given stock that are owned by the user.
 ##'cost' is a float variable that contains the total cost of the StockPosition
-	def __init__(self, ticker, numShares, y, imgFile):
+	def __init__(self, ticker, numShares, index, imgFile):
 		pygame.sprite.Sprite.__init__(self)
+		self.blank = pygame.image.load(imgFile)
 		self.image = pygame.image.load(imgFile)
+
+		self.index = index
 		self.rect = self.image.get_rect()
 		self.rect.x = 10
-		self.rect.y = y
+		self.rect.y = 200 + 90* index
 
 		self.ticker = ticker
 		self.numShares = float(numShares)
 
-		font = pygame.font.SysFont(None,50)
-		label = font.render(self.upperC(ticker), False, (0, 20, 80))
-		self.image.blit(label, (20,20))
-		self.iconText()
+		# font = pygame.font.SysFont(None,50)
+		# label = font.render(self.upperC(ticker), True, (0, 20, 80))
+		# self.image.blit(label, (20,25))
 
 	def iconText(self):
 		self.cost = get_live_price(self.ticker) * self.numShares
 		font = pygame.font.SysFont(None,35)
 
-		value = font.render(('$'+self.numCut(self.cost, 6)), False, (100, 50, 0))
+		value = font.render('$'+ self.numCut(self.cost, 6), False, (100, 80, 0))
 		self.image.blit(value, (225,30))
+		shares = font.render(str(self.numShares), False, (20, 16, 0))
+		self.image.blit(shares, (335, 5))
+
+		# change = get_data(self.ticker, time.strftime('%d-1/%m/%y'), time.strftime('%d/%m/%y'))
+		# percent = font.render(change +'%', False, (0, 20, 80))
+		# self.image.blit(price, ())
 
 	def numCut(self, num, digits):
 		# Appropriately abbreviates a floating point value to a given number of digits
@@ -59,7 +69,6 @@ class StockPosition(pygame.sprite.Sprite):
 		else:
 			return str(intN)
 
-
 ##addToPos: adds a given number of shares to the StockPosition object and increases the StockPosition's cost.
 ##called when the user buys additional shares of a stock that they already own shares of.
 	def addToPos(self, numSharesAdd):
@@ -83,3 +92,14 @@ class StockPosition(pygame.sprite.Sprite):
 			else:
 				newWord += chr(num)
 		return newWord
+
+	def update(self, shift):
+		self.rect.y = 240 + 90* self.index + shift
+
+	def refresh(self):
+		self.image.blit(self.blank, (0, 0))
+
+		font = pygame.font.SysFont(None,50)
+		label = font.render(self.upperC(self.ticker), False, (0, 20, 80))
+		self.image.blit(label, (20,25))
+		self.iconText()
