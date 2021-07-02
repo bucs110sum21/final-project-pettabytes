@@ -101,7 +101,7 @@ Worked on the GUI and different "screens of our application"
 
 ### Back End Specialist - Ryan Levine
 
-Took care of adding in yahoo_finance module and functions using yahoo_finance. Responsible for all classes in portfolio.py and stockPosition.py
+Took care of adding in yahoo_finance module and functions using yahoo_finance. Responsible for classes portfolio and stockPosition
 
 ## Testing *(Software Lead)*
 * User will buy and sell stocks and then deposit and withdraw money from account
